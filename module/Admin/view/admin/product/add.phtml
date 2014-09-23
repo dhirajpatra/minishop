@@ -1,0 +1,35 @@
+<?php
+$title = 'MiniShop - Administration';
+$this->headTitle($title);
+?>
+
+<p>
+<?php
+
+$form = $this->form;
+$form->setAttribute('action', $this->url('product', array('action' => 'add')));
+$form->prepare(); 
+echo $this->form()->openTag($form);
+echo $this->formHidden($form->get('id')); 
+echo $this->formRow($form->get('category_id')); 
+echo $this->formRow($form->get('product')); 
+echo $this->formRow($form->get('image')); 
+echo $this->formRow($form->get('shortdescription')); 
+echo $this->formRow($form->get('detailsdescription'));
+echo $this->formRow($form->get('quantity')); 
+echo $this->formRow($form->get('price')); 
+echo $this->formRow($form->get('featured')); 
+echo $this->formSubmit($form->get('submit')); 
+echo $this->form()->closeTag();
+?>
+</p>
+</div>
+<div id="sidebar">
+<p><b>Menus</b></p>
+<ul>
+<li><a href="<?php echo $this->url("product", array('action' => 'add'), array(), true); ?>">Add</a></li>
+<li><a href="<?php echo $this->url("product", array('action' => 'edit'), array(), true); ?>">Edit</a></li>
+<li><a href="<?php echo $this->url("product", array('action' => 'delete'), array(), true); ?>">Delete</a></li>
+
+</ul>
+</div>

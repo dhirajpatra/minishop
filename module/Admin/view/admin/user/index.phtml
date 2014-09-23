@@ -1,0 +1,30 @@
+<?php
+$title = 'MiniShop - Administration';
+$this->headTitle($title);
+?>
+<div id="wrap">
+<div id="header"><?php echo $this->escapeHtml($title); ?></div>
+<div id="nav">
+<ul>
+<li><a href="<?php echo $this->url("admin", array('action'=>'index'), array(), true); ?>">Home</a></li>
+<li><a href="<?php echo $this->url("category", array(), array(), true); ?>">Category</a></li>
+<li><a href="#">Product</a></li>
+<li><a href="#">User</a></li>
+
+</ul>
+</div>
+<div id="main">
+<p>Welcome to MiniShop - Admin</p>
+</div>
+<div id="sidebar">
+<p>Menus</p>
+<ul>
+<li><a href="#">Link 1</a></li>
+<li><a href="#">Link 2</a></li>
+
+</ul>
+</div>
+<div id="footer">
+<p>&nbsp;</p>
+</div>
+</div>

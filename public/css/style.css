@@ -1,6 +1,6 @@
 body {
-    padding-top: 60px;
-    padding-bottom: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .zf-green {
@@ -35,3 +35,55 @@ div.container a.brand {
     margin-left: 0;
     padding: 8px 20px 12px 40px;
 }
+
+#wrap {
+width:100%;
+margin:0 auto;
+background:#ffffff;
+}
+#nav {
+background:#eeeeee;
+padding:5px 10px;
+}
+#nav ul {
+margin:0;
+padding:0;
+list-style:none;
+}
+#nav li {
+display:inline;
+margin:5px;
+padding:0;
+}
+#main {
+float:left;
+width:100%;
+background:#ffffff;
+/*border:1px dashed;*/
+padding:5px;
+}
+#content {
+	width:75%; 
+	/*border: 1px solid red;*/ 
+	float: left;
+}
+#sidebar {
+float:right;
+width:24%;
+background:#eeeeee;
+padding:5px;
+}
+#header {
+padding:5px;
+background:#ddd;
+font-size:18px;
+font-weight:bold;
+}
+#footer {
+clear:both;
+background:#57a900;
+padding:1px 1px;
+height:20px;
+}
+
+

@@ -1,0 +1,22 @@
+<?php
+$title = 'MiniShop - Administration';
+$this->headTitle($title);
+?>
+<p>
+
+<?php
+
+$form = $this->form;
+$form->setAttribute('action', $this->url('category',array('action' => 'edit','id' => $this->id)));
+$form->prepare();
+echo $this->form()->openTag($form); 
+echo $this->formHidden($form->get('id')); 
+echo $this->formRow($form->get('category')); 
+echo $this->formRow($form->get('parentid'));
+echo $this->formSubmit($form->get('submit'));
+echo $this->form()->closeTag();
+
+?>
+</p>
+</div>
+
