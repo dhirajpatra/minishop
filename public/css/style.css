@@ -85,5 +85,17 @@ background:#57a900;
 padding:1px 1px;
 height:20px;
 }
-
-
+.col-md-4{
+	
+	width:50%;
+}
+.category-product{
+	width:100%; 
+	padding: 2px; 
+	margin: 2px auto; 
+	border: 1px solid red; 
+	overflow-x: auto; 
+	overflow-y:hidden; 
+	position: relative; 
+	display:inline-block;
+}

@@ -20,12 +20,27 @@ return array(
                     ),
                 ),
             ),
-        	
+        		'categories' => array(
+        				'type' => 'Segment',
+        				'options' => array(
+        						'route'    => '/categories[/:action][/:id]',
+        						'constraints' => array(
+        								'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+        								'id'     => '[0-9]+',
+        						),
+        						'defaults' => array(
+        								'__NAMESPACE__' => 'Application\Controller',
+        								'controller' => 'Category',
+        								'action'     => 'index',
+        						),
+        				),
+        		),
+        	        	
             // The following is a route to simplify getting started creating
             // new controllers and actions without needing to create a new
             // module. Simply drop new controllers in, and you can access them
             // using the path /application/:controller/:action
-            'application' => array(
+            /*'application' => array(
                 'type'    => 'Literal',
                 'options' => array(
                     'route'    => '/application',
@@ -53,7 +68,7 @@ return array(
                         ),
                     ),
                 ),
-            ),
+            ),*/
         ),
     ),
     'service_manager' => array(
@@ -76,8 +91,13 @@ return array(
         ),
     ),
     'controllers' => array(
+	    'classes' => array(
+	    	'Application\Controller\Index' => 'Application\Controller\IndexController',
+	    	'Application\Controller\Category' => 'Application\Controller\CategoryController'
+	    ),
         'invokables' => array(
-            'Application\Controller\Index' => 'Application\Controller\IndexController'
+            'Application\Controller\Index' => 'Application\Controller\IndexController',
+            'Application\Controller\Category' => 'Application\Controller\CategoryController'
         ),
     ),
     'view_manager' => array(
@@ -94,6 +114,9 @@ return array(
         ),
         'template_path_stack' => array(
             __DIR__ . '/../view',
+        ),
+        'strategies' => array(
+        		'ViewJsonStrategy',
         ),
     ),
     // Placeholder for console routes

@@ -11,6 +11,7 @@ namespace Application\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
+use Zend\View\Model\JsonModel;
 
 class IndexController extends AbstractActionController
 {
@@ -38,7 +39,12 @@ class IndexController extends AbstractActionController
      */
     public function showcategoryAction(){
     	
-    	return new ViewModel();
+    	$result = new JsonModel(array(
+	    'categories' => 'categories',
+            'success'=>true,
+        ));
+
+        return $result;
     }
     
     /** 
@@ -57,7 +63,7 @@ class IndexController extends AbstractActionController
     	
     }
     
-    
+	 
     
     public function getCategoryTable()
     { 

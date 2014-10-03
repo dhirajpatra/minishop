@@ -4,7 +4,7 @@ return array(
     'modules' => array(
         'Application',
     	'Admin',
-    	'ZFTool'
+    	//'ZFTool'
     ),
 
     // These are various options for the listeners attached to the ModuleManager

@@ -1,21 +1,21 @@
 <div class="jumbotron">
     <h1><?php echo sprintf($this->translate('Welcome to Mini Shop'), '<span class="zf-green">', '</span>') ?></h1>
     <p><?php echo sprintf($this->translate('Welcome! to Mini Shop Application.')) ?></p>
-    <p><a class="btn btn-success btn-lg" href="https://github.com/zendframework/zf2" target="_blank"><?php echo $this->translate('Fork Mini Shop on GitHub') ?> &raquo;</a></p>
+    <p><a class="btn btn-success btn-lg" href="https://github.com/dhirajpatra/minishop" target="_blank"><?php echo $this->translate('Fork Mini Shop on GitHub') ?> &raquo;</a></p>
 </div>
 
 <div class="row">
 
-    <div class="col-md-4">
+    <div class="col-md-3">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title"><?php echo $this->translate('Product Categories') ?></h3>
+                <h3 class="panel-title"><?php echo $this->translate('Categories') ?></h3>
             </div>
             <div class="panel-body">
-                <p><ul><?php //echo $this->url('application', array('action'=>'index')); 
+                <p><ul><?php  
 					foreach($categories as $category){
 						
-						echo '<li><a href='. $this->url("category", array("action" => "getProducts","id"=>$category->id), array(), true).'>' . $this->escapeHtml($category->category) . '</li>';
+						echo '<a href="#" class="category" id="'. $this->url('categories', array('action'=>'getproducts', 'id' => $category->id )) .'" ><li>' . $this->escapeHtml($category->category) . '</li></a>';
 						
 					}
 
@@ -27,9 +27,9 @@
     <div class="col-md-4">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title"><?php echo $this->translate('Featured Products') ?></h3>
+                <h3 class="panel-title"><?php echo $this->translate('Products') ?></h3>
             </div>
-            <div class="panel-body">
+            <div class="panel-body"  id="productDetails">
                 <p>
                 <ul>
                 <?php 
@@ -46,7 +46,7 @@
         </div>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-3">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title"><?php echo $this->translate('Shopping Cart') ?></uh3>
@@ -66,4 +66,22 @@
             </div>
         </div>
     </div>
+   
 </div>
+<script>
+                
+$(".category").click(function(){
+
+	$(".category").css("color","#428bca");
+	$(".category").css("font-weight","normal");
+	$(this).css("color","#ff0000");
+	$(this).css("font-weight","bold");
+	
+	var id = $(this).attr("id");
+	//console.log(id);
+	  $.ajax({url: id, type:'POST', datatype: 'JSON', success:function(result){
+			
+		    $("#productDetails").html(result['result']);
+	  }});
+	});
+</script>

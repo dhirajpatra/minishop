@@ -20,6 +20,7 @@ class Product
 	public $featured;
 	public $inputFilter;
 	public $inputFactory;
+	public $parentid;
 
 	public function exchangeArray($data)
 	{
@@ -33,6 +34,7 @@ class Product
 		$this->image  = (isset($data['image'])) ? $data['image'] : null;
 		$this->quantity  = (isset($data['quantity'])) ? $data['quantity'] : null;
 		$this->featured  = (isset($data['featured'])) ? $data['featured'] : null;
+		$this->parentid  = (isset($data['parentid'])) ? $data['parentid'] : null;
 	}
 	
 	public function getArrayCopy()
